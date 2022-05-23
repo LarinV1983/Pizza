@@ -1,33 +1,29 @@
 import React from 'react';
-
 import Header from './components/Header';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
-import { Routes, Route} from "react-router-dom";
+
+import {Routes, Route, Link} from "react-router-dom";
 
 function App() {
-  const [pizzas, setPizzas] = React.useState([]);
-  React.useEffect(() => {
-    fetch('http://localhost:3000/db.json')
-    .then((respons) => respons.json())
-    .then((json) => {
-      setPizzas(json.pizzas);
-    });
-  }, []);
-
   return (
   <div className="wrapper">
   <Header></Header>
       <div className="content">
       <Routes>
-        <Route path="/" 
-        element={<Home items={pizzas} />} />
-        <Route path="cart" 
-        element={<Cart />} />
-      </Routes>
 
-       
+        <Route path="/" element={<Home/>} />
+
+        <Route path="cart" element={<Cart/>} />
+
+        <Route path="login" element={<Login/>} />
+
+        <Route path="register" element={<Register/>} />
+
+      </Routes>
         </div>
       </div>
   );

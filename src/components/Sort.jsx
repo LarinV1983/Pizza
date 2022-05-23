@@ -1,33 +1,40 @@
-import React from 'react'
+import React from 'react';
 
- function Sort({items}) {
- 	const [visiblePopup, setVisiblePopup] = React.useState(false);
- 	const [activeItem, setActiveItem] = React.useState(0);
 
- 	const sortRef = React.useRef();
- 	const activeName = items[activeItem];
+const Sort = React.memo(function Sort({items, activeSortType, onClickSortType}) {
+  const [visiblePopup, setVisiblePopup] = React.useState(false);
+  // const [activeItem, setActiveItem] = React.useState(0);
 
- 	const toggleVisiblePopup = () => {
- 		setVisiblePopup(!visiblePopup);
- 	};
+  const sortRef = React.useRef();
+  const activeName = items.find((obj) => obj.type === activeSortType).name;
 
- 	const handleClick = (event) => {
- 		if (!event.path.includes(sortRef.current)) {
- 			setVisiblePopup(false);
- 		}
- 	};
+  const toggleVisiblePopup = () => {
+    setVisiblePopup(!visiblePopup);
+  };
 
- 	React.useEffect(() => {
- 		return () => {
- 			document.body.addEventListener('click', handleClick);
- 		};
- 	}, []);
+  const handleClick = (event) => {
+     const path = event.path || (event.composedPath && event.composedPath());
+    if (!path.includes(sortRef.current)) {
+      setVisiblePopup(false);
+    }
+  };
 
- 	const onSelectItem = (index) => {
- 		setActiveItem(index);
- 	};
+  React.useEffect(() => {
+    return () => {
+      document.body.addEventListener('click', handleClick);
+    };
+  }, []);
 
-	return (
+  const onSelectItem = (index) => {
+    if (onClickSortType) {
+        onClickSortType(index);
+    }
+    // setActiveItem(index);
+    setVisiblePopup(false);
+
+  };
+
+  return (
             <div ref={sortRef}
             className="sort">
               <div className="sort__label">
@@ -47,21 +54,22 @@ import React from 'react'
                 <span onClick={toggleVisiblePopup}>{activeName}</span>
               </div>
               {visiblePopup && 
-              	(<div className="sort__popup">
+                (<div className="sort__popup">
                 <ul>
                 {items &&
-            		items.map((name, index) => (
-            	<li 
-            	className={activeItem === index ? "active" : ''}
-            	onClick={() => onSelectItem(index)} 
-            	key={index}>
-            	{name}
-            				</li>
-           				))}
+                items.map((obj, index) => (
+                  // .type
+              <li               
+              onClick={() => onSelectItem(obj.type)} 
+              className={activeSortType === obj.type ? "active" : ''}
+              key={index}>
+              {obj.name}
+                    </li>
+                  ))}
                 </ul>
               </div>)}
-   					</div>
-	);
-}
+            </div>
+  );
+});
 
 export default Sort;

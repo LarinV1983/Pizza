@@ -1,35 +1,67 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import Button from './Button';
 
- function PizzaBlock({name, imageUrl, price}) {
- 	const types = ['тонкое', 'традиционное'];
- 	const [activeType, setActiveType] = React.useState(1);
+import PizzaBlockLoader from '../components/PizzaBlockLoader';
+
+ function PizzaBlock({id, name, imageUrl, price, types, sizes, onClickAddPizza, addedCount}) {
+ 	
+  const typeNames = ['тонкое', 'традиционное'];
+ 	const availableSizes = [26, 30, 40];
+
+ 	const [activeType, setActiveType] = React.useState(types[0]);
+ 	const [activeSize, setActiveSize] = React.useState(0);
+
+
 
  	const onSelectType = (index) => {
  		setActiveType(index);
  	};
 
+ 		const onSelectSize = (index) => {
+ 		setActiveSize(index);
+ 	};
+
+  const onAddPizza = () => {
+    const obj = {
+      id,
+      name,
+      imageUrl,
+      price,
+      size: availableSizes[activeSize],
+      type: typeNames[activeType]
+    } 
+
+    onClickAddPizza(obj);
+  };
 
 	return (
 	<div className="pizza-block">
   	<img className="pizza-block__image" src={imageUrl} alt="Pizza"/>
   <h4 className="pizza-block__title">{name}</h4>
   <div className="pizza-block__selector">
+
     <ul>
-    	{types.map((type, index) => 
-    		(<li onClick={() => onSelectType(index)} className={activeType === index ? 'active' : ''}>
-    				{type}</li>))}
-{/*      <li className="active">тонкое</li>
-      <li className="disabled">традиционное</li>*/}
+    	{typeNames.map((type, index) => 
+    		(<li key={type} onClick={() => onSelectType(index)} 
+    			className={classNames ({active : activeType === index,
+    				disabled : !types.includes(index),
+    			})}>
+    			{type}</li>))}
     </ul>
     <ul>
-      <li className="active">26 см.</li> 
-      <li className="disabled">30 см.</li>
-      <li>40 см.</li>
+      {availableSizes.map((size, index) => 
+    		(<li key={size} onClick={() => onSelectSize(index)} 
+    			className={classNames ({active : activeSize === index,
+    				disabled : !sizes.includes(size),
+    			})}>
+    			{size} см.</li>))}
     </ul>
   </div>
   <div className="pizza-block__bottom">
     <div className="pizza-block__price">от {price} ₽</div>
-    <div className="button button--outline button--add">
+    <Button onClick={onAddPizza} className="button--add" outline>
       <svg
         width="12"
         height="12"
@@ -43,8 +75,8 @@ import React from 'react';
             />
                   </svg>
                 <span>Добавить</span>
-              <i>2</i>
-            </div>
+             {addedCount &&  <i> {addedCount}</i>}
+            </Button> 
           </div>
          </div>
 	);
