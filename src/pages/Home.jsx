@@ -5,7 +5,6 @@ import Sort from '../components/Sort';
 import PizzaBlock from '../components/PizzaBlock';
 import {setPizzas, setLoaded} from '../redux/actions/pizzas';
 import axios from 'axios';
-import PizzaBlockLoader from '../components/PizzaBlockLoader';
 import {setCategory, setSortBy} from '../redux/actions/filters';
 import {addPizzaToCart} from '../redux/actions/cart';
 
@@ -71,8 +70,7 @@ const sortItems = [
           </div>
           <h2 className="content__title">Все пиццы</h2>
           <div className="content__items">
-          { isLoaded ?
-            items.map((obj) => (
+            {items.map((obj) => (
               <PizzaBlock
               onClickAddPizza = {handleAddPizzaToCart}
               key={obj.id} 
@@ -80,12 +78,11 @@ const sortItems = [
               imageUrl={obj.imageUrl} 
               isLoaded={true}
               addedCount={cartItems[obj.id] && cartItems[obj.id].items.length} 
-              {...obj}/>))
-            : Array(12).fill(0).map((_, index) => 
-              <PizzaBlockLoader key ={index}/>)}
+              {...obj}
+              />))}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
   );
 }
 

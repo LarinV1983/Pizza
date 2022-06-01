@@ -1,6 +1,6 @@
 import React from 'react';
 
-import logo from "../resources/img/pizza-logo.svg";
+import logo from "../resources/img/pizza-logo.png";
 import {Link} from "react-router-dom";
 import Button from './Button';
 import {useSelector, useDispatch} from 'react-redux';
@@ -19,14 +19,7 @@ function Header() {
               <p>самая вкусная пицца во вселенной</p>
             </div>
           </div>
-          </Link>
-
-          <Link to="login">
-            <Button>регистрация</Button>
-          </Link>
-
-{/*<img  width="28" height="28" src="../resources/img/regisrers.svg" alt="User"/>
-*/}        
+          </Link>      
           <div className="header__cart">
           <Link to="cart">
             <Button className="button--cart">

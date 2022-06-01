@@ -3,7 +3,7 @@ import CartItems from '../components/CartItems';
 import {useSelector, useDispatch} from 'react-redux';
 import {clearCart, removeCartItem} from '../redux/actions/cart';
 import cartEmtyImage from '../resources/img/empty-cart.png';
-import {Link} from "react-router-dom";
+import {Outlet, Link} from "react-router-dom";
 
 
  function Cart() {
@@ -82,6 +82,7 @@ import {Link} from "react-router-dom";
                 <div className="button pay-btn">
                   <span>Оплатить сейчас</span>
                 </div>
+ 
               </div>
             </div>
           </div> :    
@@ -99,7 +100,6 @@ import {Link} from "react-router-dom";
         }
         </div>
       </div>
-
 	);
 }
 export default Cart;

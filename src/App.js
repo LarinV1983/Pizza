@@ -2,11 +2,8 @@ import React from 'react';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
-import Login from './pages/Login';
-import Register from './pages/Register';
 
-
-import {Routes, Route, Link} from "react-router-dom";
+import {Routes, Route, Outlet, Link} from "react-router-dom";
 
 function App() {
   return (
@@ -14,15 +11,8 @@ function App() {
   <Header></Header>
       <div className="content">
       <Routes>
-
         <Route path="/" element={<Home/>} />
-
         <Route path="cart" element={<Cart/>} />
-
-        <Route path="login" element={<Login/>} />
-
-        <Route path="register" element={<Register/>} />
-
       </Routes>
         </div>
       </div>

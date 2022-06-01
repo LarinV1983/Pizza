@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Button from './Button';
 
-import PizzaBlockLoader from '../components/PizzaBlockLoader';
-
  function PizzaBlock({id, name, imageUrl, price, types, sizes, onClickAddPizza, addedCount}) {
  	
   const typeNames = ['тонкое', 'традиционное'];
@@ -37,7 +35,8 @@ import PizzaBlockLoader from '../components/PizzaBlockLoader';
   };
 
 	return (
-	<div className="pizza-block">
+    <div className="pizza-block-wrapper">
+	   <div className="pizza-block">
   	<img className="pizza-block__image" src={imageUrl} alt="Pizza"/>
   <h4 className="pizza-block__title">{name}</h4>
   <div className="pizza-block__selector">
@@ -79,6 +78,7 @@ import PizzaBlockLoader from '../components/PizzaBlockLoader';
             </Button> 
           </div>
          </div>
+        </div>
 	);
 }
 

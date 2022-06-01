@@ -3,7 +3,7 @@
 .button {
   display: inline-block;
   background-color: $orange;
-  border-radius: 30px;
+  border-radius: 15px;
   padding: 10px 20px;
   min-width: 100px;
   text-align: center;
@@ -12,9 +12,17 @@
   border: 1px solid transparent;
   @include noselect();
 
+  @media (max-width: 600px) {
+    padding: 5px 10px;
+    }
+
+
   &,
   span {
     color: #fff;
+  @media (max-width: 600px) {
+    font-size: 12px;
+    }
   }
 
   i,
@@ -55,7 +63,7 @@
 
   &--outline {
     background-color: #fff;
-    border-color: $orange;
+    border-color: #FE821E;
     &,
     span {
       color: $orange;
@@ -68,7 +76,7 @@
     }
 
     &:hover {
-      background-color: $orange;
+      background-color: #FE821E;
 
       &,
       span {
@@ -103,6 +111,9 @@
     span {
       font-weight: 600;
       font-size: 16px;
+       @media (max-width: 600px) {
+      font-size: 12px;
+    }
     }
 
     &:hover {
