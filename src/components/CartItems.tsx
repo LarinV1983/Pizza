@@ -1,12 +1,22 @@
 import React from 'react';
 import Button from './Button';
 
+type CartItemsProps = {
+  id: number;
+  type: number;
+  name: string;
+  size: number;
+  totalPrice: number;
+  totalCount: number;
+  onRemove: string;
+};
 
- function CartItems({ id, type, name, size, totalPrice, totalCount, onRemove}) {
+
+ const CartItems: React.FC<CartItemsProps> = React.memo(function CartItems({ id, type, name, size, totalPrice, totalCount, onRemove}) {
  	
  	const handleRemoveClick = () => {
  		onRemove(id);
- 	}
+ 	};
 
 	return (
 	<div className="cart__item">
@@ -37,5 +47,6 @@ import Button from './Button';
 </div>
 
 	);
-}
+})
+
 export default CartItems;

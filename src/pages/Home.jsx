@@ -11,8 +11,13 @@ import {addPizzaToCart} from '../redux/actions/cart';
 
 const categoryNames = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
 
+type SortList = {
+  name: string;
+  type: string;
+  order: string;
+}
 
-const sortItems = [
+const sortItems: SortList[] = [
                 {name: 'популярности', type: 'popular', order: 'desc'},
                 {name: 'цене', type: 'price', order: 'desc'},
                 {name: 'алфавит', type: 'name', order: 'asc'},

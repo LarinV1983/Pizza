@@ -1,6 +1,12 @@
 import React from 'react';
 
-const Categories = React.memo(function Categories({ activeCategory, items, onClickCategory}) {
+type CategoriesProps = {
+  activeCategory: number;
+  items: any;
+  onClickCategory: number;
+}
+
+const Categories: React.FC<CategoriesProps> = React.memo(function Categories({ activeCategory, items, onClickCategory}) {
  
    return (
          <div className="categories">
