@@ -11,8 +11,6 @@ import Button from './Button';
  	const [activeType, setActiveType] = React.useState(types[0]);
  	const [activeSize, setActiveSize] = React.useState(0);
 
-
-
  	const onSelectType = (index) => {
  		setActiveType(index);
  	};
