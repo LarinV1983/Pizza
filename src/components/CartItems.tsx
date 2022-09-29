@@ -3,12 +3,12 @@ import Button from './Button';
 
 type CartItemsProps = {
   id: number;
-  type: number;
+  type: number[];
   name: string;
-  size: number;
+  size: number[];
   totalPrice: number;
   totalCount: number;
-  onRemove: string;
+  onRemove: (id: number) => void;
 };
 
 

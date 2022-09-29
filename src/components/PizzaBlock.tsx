@@ -3,7 +3,18 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Button from './Button';
 
- function PizzaBlock({id, name, imageUrl, price, types, sizes, onClickAddPizza, addedCount}) {
+type PizzaBlockProps = {
+  id: number; 
+  name: string;
+  imageUrl: string;
+  price: number;
+  types: number[];
+  sizes: number[];
+  onClickAddPizza: any;
+  addedCount: any;
+};
+
+ const PizzaBlock: React.FC<PizzaBlockProps> = ({id, name, imageUrl, price, types, sizes, onClickAddPizza, addedCount}) => {
  	
   const typeNames = ['тонкое', 'традиционное'];
  	const availableSizes = [26, 30, 40];

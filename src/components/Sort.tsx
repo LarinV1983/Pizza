@@ -2,7 +2,6 @@ import React from 'react';
 
 const Sort = React.memo(function Sort({items, activeSortType, onClickSortType}) {
   const [visiblePopup, setVisiblePopup] = React.useState(false);
-  // const [activeItem, setActiveItem] = React.useState(0);
 
   const sortRef = React.useRef<HTMLDivElement>(null);
   const activeName = items.find((obj:any) => obj.type === activeSortType).name;
