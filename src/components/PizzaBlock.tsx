@@ -22,11 +22,11 @@ type PizzaBlockProps = {
  	const [activeType, setActiveType] = React.useState(types[0]);
  	const [activeSize, setActiveSize] = React.useState(0);
 
- 	const onSelectType = (index) => {
+ 	const onSelectType = (index: number) => {
  		setActiveType(index);
  	};
 
- 		const onSelectSize = (index) => {
+ 		const onSelectSize = (index: number) => {
  		setActiveSize(index);
  	};
 

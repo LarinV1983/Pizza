@@ -23,7 +23,7 @@ const sortItems: SortList[] = [
                 {name: 'алфавит', type: 'name', order: 'asc'},
                ];              
 
- function Home() {
+ const Home: React.FC = () => {
   const dispatch = useDispatch();
   const items = useSelector(({pizzas}) => pizzas.items);
   const cartItems = useSelector(({ cart }) => cart.items);
@@ -46,7 +46,7 @@ const sortItems: SortList[] = [
     dispatch(setCategory(index));
   }, []);
 
-  const onSelectSortType = React.useCallback((type) => {
+  const onSelectSortType = React.useCallback((type: string) => {
     dispatch(setSortBy(type));
   }, []);
 

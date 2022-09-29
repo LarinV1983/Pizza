@@ -3,7 +3,7 @@ import React from 'react';
 type CategoriesProps = {
   activeCategory: number;
   items: any;
-  onClickCategory: number;
+  onClickCategory: (index: number) => void;
 }
 
 const Categories: React.FC<CategoriesProps> = React.memo(function Categories({ activeCategory, items, onClickCategory}) {

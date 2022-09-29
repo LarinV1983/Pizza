@@ -3,8 +3,12 @@ import React from 'react';
 type SortProps = {
   items: any;
   activeSortType: any;
-  onClickSortType: any;
-}
+  onClickSortType: (index: number) => void;
+};
+
+type Popup = MouseEvent & {
+    path: Node[];
+};
 
 const Sort: React.FC<SortProps> = React.memo(function Sort({items, activeSortType, onClickSortType}) {
   const [visiblePopup, setVisiblePopup] = React.useState(false);
@@ -16,20 +20,21 @@ const Sort: React.FC<SortProps> = React.memo(function Sort({items, activeSortTyp
     setVisiblePopup(!visiblePopup);
   };
 
-  const handleClick = (event: any) => {
-     const path = event.path || (event.composedPath && event.composedPath());
-    if (!path.includes(sortRef.current)) {
+ const handleClick = (event: MouseEvent) => {
+  const _event = event as Popup;
+     const path = _event.path || (event.composedPath && event.composedPath());
+    if (sortRef.current && !_event.path.includes(sortRef.current)) {
       setVisiblePopup(false);
     }
   };
-
+ 
   React.useEffect(() => {
     return () => {
       document.body.addEventListener('click', handleClick);
     };
   }, []);
 
-  const onSelectItem = (index:any) => {
+  const onSelectItem = (index: number) => {
     if (onClickSortType) {
         onClickSortType(index);
     }

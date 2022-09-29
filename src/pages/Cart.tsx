@@ -6,7 +6,7 @@ import cartEmtyImage from '../resources/img/empty-cart.png';
 import {Outlet, Link} from "react-router-dom";
 
 
- function Cart() {
+ const Cart: React.FC =() => {
   const dispatch = useDispatch();
   const {totalPrice, totalCount, items} = useSelector(({cart}) => cart);
 
