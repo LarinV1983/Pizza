@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import Button from './Button';
 import {useSelector, useDispatch} from 'react-redux';
 
-function Header() {
+const Header: React.FC = () => {
   const {totalPrice, totalCount} = useSelector(({cart}) => cart);
 
 	return (

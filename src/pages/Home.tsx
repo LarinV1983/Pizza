@@ -42,7 +42,7 @@ const sortItems: SortList[] = [
     });
   }, [sortBy, category]);
 
-  const onSelectCategory = React.useCallback((index) => {
+  const onSelectCategory = React.useCallback((index: number) => {
     dispatch(setCategory(index));
   }, []);
 

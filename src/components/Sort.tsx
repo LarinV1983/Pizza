@@ -1,6 +1,12 @@
 import React from 'react';
 
-const Sort = React.memo(function Sort({items, activeSortType, onClickSortType}) {
+type SortProps = {
+  items: any;
+  activeSortType: any;
+  onClickSortType: any;
+}
+
+const Sort: React.FC<SortProps> = React.memo(function Sort({items, activeSortType, onClickSortType}) {
   const [visiblePopup, setVisiblePopup] = React.useState(false);
 
   const sortRef = React.useRef<HTMLDivElement>(null);
@@ -10,7 +16,7 @@ const Sort = React.memo(function Sort({items, activeSortType, onClickSortType}) 
     setVisiblePopup(!visiblePopup);
   };
 
-  const handleClick = (event:any) => {
+  const handleClick = (event: any) => {
      const path = event.path || (event.composedPath && event.composedPath());
     if (!path.includes(sortRef.current)) {
       setVisiblePopup(false);
