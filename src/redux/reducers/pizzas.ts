@@ -1,9 +1,16 @@
+import { AnyAction } from 'redux';
+
+interface PizzasState {
+	items: any[];
+	isLoaded: boolean; 
+}
+
 const initialStore = {
 	items: [],
 	isLoaded: false, 
 };
 
-function pizzas (state = initialStore, action) {
+function pizzas (state = initialStore, action: AnyAction) {
 	if (action.type === 'SET_PIZZAS') {
 		return {
 			...state,
