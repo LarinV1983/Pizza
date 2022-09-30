@@ -1,13 +1,3 @@
-
-// const initialStore = {
-//   category: null,
-//   sortBy: {
-//     type: 'popular',
-//     order: 'desc',
-//   },
-// };
-
-
 const initialStore = {
 	category: null,
 	sortBy: 'popular',

@@ -1,12 +1,30 @@
-const initialStore = {
-	items: {},
+import { AnyAction } from 'redux';
+
+// type CartType = {
+// 	id: number;
+//   name: string;
+//   imageUrl: string;
+//   price: number;
+//   size: number;
+//   type: number;
+//   items: [];
+// }
+
+interface CartState {
+	totalPrice: number;
+	totalCount: number;
+	items: any[];
+};
+
+const initialStore: CartState = {
+	items: [],
 	totalPrice: 0,
 	totalCount: 0,
 };
 
-const getTotalPrice = arr => arr.reduce((sum, obj) => obj.price + sum, 0);
+const getTotalPrice = (arr:any[]) => arr.reduce((sum: number, obj: any) => obj.price + sum, 0);
 
-function cart (state = initialStore, action) {
+function cart (state = initialStore, action: AnyAction) {
 	if (action.type === 'ADD_PIZZA_CART') {
 		const currentPizzaItems = !state.items[action.payload.id]
 			? [action.payload]
@@ -36,7 +54,7 @@ function cart (state = initialStore, action) {
 		return {
 			totalPrice: 0,
 			totalCount: 0,
-			items: {},
+			items: [],
 		};
 	}
 
