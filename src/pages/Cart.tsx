@@ -1,14 +1,14 @@
 import React from 'react';
 import CartItems from '../components/CartItems';
-import {useSelector, useDispatch} from 'react-redux';
+import {useAppSelector, useAppDispatch} from '../redux/store';
 import {clearCart, removeCartItem} from '../redux/actions/cart';
 import cartEmtyImage from '../resources/img/empty-cart.png';
 import {Outlet, Link} from "react-router-dom";
 
 
  const Cart: React.FC =() => {
-  const dispatch = useDispatch();
-  const {totalPrice, totalCount, items} = useSelector(({cart}) => cart);
+  const dispatch = useAppDispatch();
+  const {totalPrice, totalCount, items} = useAppSelector(({cart}) => cart);
 
   const addedPizzas = Object.keys(items).map(key => {
     return items[key].items[0];
@@ -20,7 +20,7 @@ import {Outlet, Link} from "react-router-dom";
       }
     };
 
-    const onRemoveItem = (id) => {
+    const onRemoveItem = (id: number) => {
       if (window.confirm('Вы действительно хотите удалить?')) {
         dispatch(removeCartItem(id));
       };

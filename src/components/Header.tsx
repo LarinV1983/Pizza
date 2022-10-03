@@ -3,10 +3,11 @@ import React from 'react';
 import logo from "../resources/img/pizza-logo.png";
 import {Link} from "react-router-dom";
 import Button from './Button';
-import {useSelector, useDispatch} from 'react-redux';
+import {useAppSelector} from '../redux/store';
+import {useDispatch} from 'react-redux';
 
 const Header: React.FC = () => {
-  const {totalPrice, totalCount} = useSelector(({cart}) => cart);
+  const {totalPrice, totalCount} = useAppSelector(({cart}) => cart);
 
 	return (
  <div className="header">

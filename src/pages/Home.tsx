@@ -1,5 +1,5 @@
 import React from 'react';
-import {useSelector, useDispatch} from 'react-redux'; 
+import {useAppSelector, useAppDispatch} from '../redux/store';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import PizzaBlock from '../components/PizzaBlock';
@@ -24,11 +24,11 @@ const sortItems: SortList[] = [
                ];              
 
  const Home: React.FC = () => {
-  const dispatch = useDispatch();
-  const items = useSelector(({pizzas}) => pizzas.items);
-  const cartItems = useSelector(({ cart }) => cart.items);
-  const isLoaded = useSelector(({pizzas}) => pizzas.isLoaded);
-  const {category, sortBy} = useSelector(({filters}) => filters);
+  const dispatch = useAppDispatch();
+  const items = useAppSelector(({pizzas}) => pizzas.items);
+  const cartItems = useAppSelector(({ cart }) => cart.items);
+  const isLoaded = useAppSelector(({pizzas}) => pizzas.isLoaded);
+  const {category, sortBy} = useAppSelector(({filters}) => filters);
   
   React.useEffect(() => {
     dispatch (setLoaded(false));
