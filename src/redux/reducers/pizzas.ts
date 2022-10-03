@@ -5,7 +5,7 @@ interface PizzasState {
 	isLoaded: boolean; 
 }
 
-const initialStore = {
+const initialStore: PizzasState = {
 	items: [],
 	isLoaded: false, 
 };

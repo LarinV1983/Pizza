@@ -1,9 +1,9 @@
 import React from 'react';
 
 type CategoriesProps = {
-  activeCategory: number;
-  items: any;
-  onClickCategory: (index: number) => void;
+  activeCategory: (index: number | null) => void;
+  items: any[];
+  onClickCategory: (index: number | null) => void;
 }
 
 const Categories: React.FC<CategoriesProps> = React.memo(function Categories({ activeCategory, items, onClickCategory}) {

@@ -1,15 +1,5 @@
 import { AnyAction } from 'redux';
 
-// type CartType = {
-// 	id: number;
-//   name: string;
-//   imageUrl: string;
-//   price: number;
-//   size: number;
-//   type: number;
-//   items: [];
-// }
-
 interface CartState {
 	totalPrice: number;
 	totalCount: number;
