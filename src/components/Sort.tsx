@@ -65,7 +65,7 @@ const Sort: React.FC<SortProps> = React.memo(function Sort({items, activeSortTyp
                 (<div className="sort__popup">
                 <ul>
                 {items &&
-                items.map((obj: any, index: any) => (
+                items.map((obj: any, index: number) => (
               <li               
               onClick={() => onSelectItem(obj.type)} 
               className={activeSortType === obj.type ? "active" : ''}

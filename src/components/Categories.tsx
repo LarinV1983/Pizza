@@ -1,9 +1,9 @@
 import React from 'react';
 
 type CategoriesProps = {
-  activeCategory: (index: number ) => void;
+  activeCategory: number;
   items: any[];
-  onClickCategory: (index: number ) => void;
+  onClickCategory: (index: number | null) => void;
 }
 
 const Categories: React.FC<CategoriesProps> = React.memo(function Categories({ activeCategory, items, onClickCategory}) {
@@ -15,7 +15,7 @@ const Categories: React.FC<CategoriesProps> = React.memo(function Categories({ a
                      onClick={() => onClickCategory(null)}>Все
                      </li>
                       {items &&
-                  items.map((name, index) => (
+                  items.map((name: string, index: number) => (
                <li 
                className={activeCategory === index ? "active" : ''}
                onClick={() => onClickCategory(index)} 
