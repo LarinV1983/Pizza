@@ -10,7 +10,7 @@ import {Outlet, Link} from "react-router-dom";
   const dispatch = useAppDispatch();
   const {totalPrice, totalCount, items} = useAppSelector(({cart}) => cart);
 
-  const addedPizzas = Object.keys(items).map(key => {
+  const addedPizzas = Object.keys(items).map((key: any) => {
     return items[key].items[0];
   });
 
