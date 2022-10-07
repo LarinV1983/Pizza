@@ -89,6 +89,6 @@ const sortItems: SortList[] = [
             </div>
           </div>
   );
-}
+};
 
 export default Home;
