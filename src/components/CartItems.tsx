@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './Button';
 
-type CartItemsProps = {
+interface CartItemsProps {
   id: number;
   type: number[];
   name: string;

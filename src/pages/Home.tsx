@@ -46,7 +46,7 @@ const sortItems: SortList[] = [
     dispatch(setCategory(index));
   }, []);
 
-  const onSelectSortType = React.useCallback((type: string) => {
+  const onSelectSortType = React.useCallback((type: number) => {
     dispatch(setSortBy(type));
   }, []);
 

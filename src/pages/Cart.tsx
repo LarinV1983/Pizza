@@ -5,7 +5,6 @@ import {clearCart, removeCartItem} from '../redux/actions/cart';
 import cartEmtyImage from '../resources/img/empty-cart.png';
 import {Outlet, Link} from "react-router-dom";
 
-
  const Cart: React.FC =() => {
   const dispatch = useAppDispatch();
   const {totalPrice, totalCount, items} = useAppSelector(({cart}) => cart);
