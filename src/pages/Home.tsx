@@ -50,7 +50,7 @@ const sortItems: SortList[] = [
     dispatch(setSortBy(type));
   }, []);
 
-  const handleAddPizzaToCart = (obj) => {
+  const handleAddPizzaToCart = (obj: any) => {
     dispatch({
       type: 'ADD_PIZZA_CART',
       payload: obj,
@@ -75,7 +75,7 @@ const sortItems: SortList[] = [
           </div>
           <h2 className="content__title">Все пиццы</h2>
           <div className="content__items">
-            {items.map((obj) => (
+            {items.map((obj: any) => (
               <PizzaBlock
               onClickAddPizza = {handleAddPizzaToCart}
               key={obj.id} 

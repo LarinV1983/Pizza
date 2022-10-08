@@ -15,7 +15,7 @@ export const addPizzaToCart = (pizzaObj: PizzaTypeObj ) => ({
 	payload: pizzaObj,
 });
 
-export const clearCart = (pizzaObj: PizzaTypeObj) => ({
+export const clearCart = () => ({
 	type: 'CLEAR_CART',
 });
 
