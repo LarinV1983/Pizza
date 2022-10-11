@@ -3,7 +3,7 @@ import CartItems from '../components/CartItems';
 import {useAppSelector, useAppDispatch} from '../redux/store';
 import {clearCart, removeCartItem} from '../redux/actions/cart';
 import cartEmtyImage from '../resources/img/empty-cart.png';
-import {Outlet, Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 
  const Cart: React.FC =() => {
   const dispatch = useAppDispatch();

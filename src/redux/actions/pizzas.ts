@@ -10,7 +10,7 @@ interface PizzaType {
   rating: number;
 }
 
-export const setLoaded = (payload: PizzaType) => ({
+export const setLoaded = (payload: PizzaType | boolean) => ({
   type: 'SET_LOADED',
   payload,
 });

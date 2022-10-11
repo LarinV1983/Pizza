@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 
 type SortProps = {
-  items: any;
+  items: any[];
   activeSortType: any;
   onClickSortType: (index: number) => void;
 };
@@ -22,7 +22,7 @@ const Sort: React.FC<PropsWithChildren<SortProps>> = React.memo(function Sort({i
 
  const handleClick = (event: MouseEvent) => {
   const _event = event as Popup;
-     const path = _event.path || (event.composedPath && event.composedPath());
+     // const path = _event.path || (event.composedPath && event.composedPath());
     if (sortRef.current && !_event.path.includes(sortRef.current)) {
       setVisiblePopup(false);
     }

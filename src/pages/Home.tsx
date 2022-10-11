@@ -6,7 +6,7 @@ import PizzaBlock from '../components/PizzaBlock';
 import {setPizzas, setLoaded} from '../redux/actions/pizzas';
 import axios from 'axios';
 import {setCategory, setSortBy} from '../redux/actions/filters';
-import {addPizzaToCart} from '../redux/actions/cart';
+// import {addPizzaToCart} from '../redux/actions/cart';
 
 
 const categoryNames = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
@@ -27,10 +27,10 @@ const sortItems: SortList[] = [
   const dispatch = useAppDispatch();
   const items = useAppSelector(({pizzas}) => pizzas.items);
   const cartItems = useAppSelector(({ cart }) => cart.items);
-  const isLoaded = useAppSelector(({pizzas}) => pizzas.isLoaded);
+  // const isLoaded = useAppSelector(({pizzas}) => pizzas.isLoaded);
   const {category, sortBy} = useAppSelector(({filters}) => filters);
   
-  React.useEffect(()=>{
+  React.useEffect(()=> {
     dispatch (setLoaded(false));
     axios.get(
       `/pizzas?${
@@ -40,15 +40,15 @@ const sortItems: SortList[] = [
     .then(({data}) => {
     dispatch(setPizzas(data));
     });
-  }, [sortBy, category]);
+  }, [sortBy, category, dispatch]);
 
-  const onSelectCategory = React.useCallback((index: number | null) => {
+  const onSelectCategory = React.useCallback((index: any) => {
     dispatch(setCategory(index));
-  }, []);
+  }, [dispatch]);
 
-  const onSelectSortType = React.useCallback((type: number) => {
+  const onSelectSortType = React.useCallback((type: any) => {
     dispatch(setSortBy(type)); 
-  }, []);
+  }, [dispatch]);
 
   const handleAddPizzaToCart = (obj: any) => {
     dispatch({
