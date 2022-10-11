@@ -30,7 +30,7 @@ const sortItems: SortList[] = [
   const isLoaded = useAppSelector(({pizzas}) => pizzas.isLoaded);
   const {category, sortBy} = useAppSelector(({filters}) => filters);
   
-  React.useEffect(() => {
+  React.useEffect(()=>{
     dispatch (setLoaded(false));
     axios.get(
       `/pizzas?${
@@ -42,12 +42,12 @@ const sortItems: SortList[] = [
     });
   }, [sortBy, category]);
 
-  const onSelectCategory = React.useCallback((index: number) => {
+  const onSelectCategory = React.useCallback((index: number | null) => {
     dispatch(setCategory(index));
   }, []);
 
-  const onSelectSortType = React.useCallback((type: string) => {
-    dispatch(setSortBy(type));
+  const onSelectSortType = React.useCallback((type: number) => {
+    dispatch(setSortBy(type)); 
   }, []);
 
   const handleAddPizzaToCart = (obj: any) => {

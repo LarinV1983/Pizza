@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 type SortProps = {
   items: any;
@@ -10,7 +10,7 @@ type Popup = MouseEvent & {
     path: Node[];
 };
 
-const Sort: React.FC<SortProps> = React.memo(function Sort({items, activeSortType, onClickSortType}) {
+const Sort: React.FC<PropsWithChildren<SortProps>> = React.memo(function Sort({items, activeSortType, onClickSortType}) {
   const [visiblePopup, setVisiblePopup] = React.useState(false);
 
   const sortRef = React.useRef<HTMLDivElement>(null);

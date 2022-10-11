@@ -53,6 +53,7 @@ import {Outlet, Link} from "react-router-dom";
 
             {addedPizzas.map((obj) => (
               <CartItems
+              
               id={obj.id}
               key={obj.id} 
               name={obj.name} 

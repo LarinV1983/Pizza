@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 type CategoriesProps = {
   activeCategory: number;
@@ -6,7 +6,7 @@ type CategoriesProps = {
   onClickCategory: (index: number | null) => void;
 }
 
-const Categories: React.FC<CategoriesProps> = React.memo(function Categories({ activeCategory, items, onClickCategory}) {
+const Categories: React.FC<PropsWithChildren<CategoriesProps>> = React.memo(function Categories({ activeCategory, items, onClickCategory}) {
  
    return (
          <div className="categories">
