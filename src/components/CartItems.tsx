@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import Button from './Button';
 
 interface CartItemsProps {
   id: number;
-  type: number[];
+  type: string;
   name: string;
-  size: number[];
+  size: number;
   totalPrice: number;
   totalCount: number;
   onRemove: (id: number) => void;
 };
 
 
- const CartItems: React.FC<CartItemsProps> = React.memo(function CartItems({ id, type, name, size, totalPrice, totalCount, onRemove}) {
+ const CartItems: React.FC<PropsWithChildren<CartItemsProps>> =
+  React.memo(function CartItems(
+  { id, type, name, size, totalPrice, totalCount, onRemove}) {
  	
  	const handleRemoveClick = () => {
  		onRemove(id);

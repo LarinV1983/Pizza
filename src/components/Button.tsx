@@ -15,7 +15,6 @@ const Button: React.FC<ButtonProps> = ({onClick, className, outline, children}) 
 		 	className={classNames('button', className, {
 				'button--outline': outline,
 			})}>
-
 		{children}
 		</button>
 	</>

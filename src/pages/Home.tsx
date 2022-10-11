@@ -46,7 +46,7 @@ const sortItems: SortList[] = [
     dispatch(setCategory(index));
   }, []);
 
-  const onSelectSortType = React.useCallback((type: number) => {
+  const onSelectSortType = React.useCallback((type: string) => {
     dispatch(setSortBy(type));
   }, []);
 
@@ -77,7 +77,7 @@ const sortItems: SortList[] = [
           <div className="content__items">
             {items.map((obj: any) => (
               <PizzaBlock
-              onClickAddPizza = {handleAddPizzaToCart}
+              onClickAddPizza={handleAddPizzaToCart}
               key={obj.id} 
               name={obj.name} 
               imageUrl={obj.imageUrl} 
